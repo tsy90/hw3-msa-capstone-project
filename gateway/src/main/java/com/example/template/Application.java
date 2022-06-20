@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+// 2팀 테스트으으 &&&&&&&& 여기 수정
 @SpringBootApplication
 public class Application {
 
