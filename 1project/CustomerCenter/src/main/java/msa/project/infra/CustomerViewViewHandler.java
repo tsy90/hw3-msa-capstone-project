@@ -28,10 +28,12 @@ public class CustomerViewViewHandler {
             // view 객체에 이벤트의 Value 를 set 함
             //customerView.setId(id);
             customerView.setId(orderPlaced.getId()); // 위에 에러떠서 이걸로 변경
+            customerView.setOrderId(orderPlaced.getOrderId());
             customerView.setOrderStatus(
                 String.valueOf(orderPlaced.getOrderStatus())
             );
             customerView.setUserId(orderPlaced.getUserId());
+
             // view 레파지 토리에 save
             customerViewRepository.save(customerView);
         } catch (Exception e) {

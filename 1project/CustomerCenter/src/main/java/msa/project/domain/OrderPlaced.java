@@ -8,6 +8,7 @@ import msa.project.infra.AbstractEvent;
 public class OrderPlaced extends AbstractEvent {
 
     private Long id;
+    private Long orderId;
     private String productName;
     private Float price;
     private String userId;
@@ -17,6 +18,12 @@ public class OrderPlaced extends AbstractEvent {
     private String orderStatus;
 
 
+    public Long getOrderId() {
+        return orderId;
+    }
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
     public Long getId() {
         return id;
     }

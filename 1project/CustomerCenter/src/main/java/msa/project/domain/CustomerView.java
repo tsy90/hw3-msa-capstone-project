@@ -15,6 +15,13 @@ public class CustomerView {
     private Long id;
 
     private String userId;
+    private String orderStatus;
+    private String deliveryStatus;
+    private Long orderId;
+    private Long deliverId;
+    private String payStatus;
+    private Long payId;
+    
     public Long getId() {
         return id;
     }
@@ -63,10 +70,4 @@ public class CustomerView {
     public void setPayId(Long payId) {
         this.payId = payId;
     }
-    private String orderStatus;
-    private String deliveryStatus;
-    private Long orderId;
-    private Long deliverId;
-    private String payStatus;
-    private Long payId;
 }
