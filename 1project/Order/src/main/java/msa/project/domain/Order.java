@@ -39,8 +39,8 @@ public class Order {
 
     @PostUpdate
     public void onPostUpdate() {
-        OrderCanceled orderCanceled = new OrderCanceled(this);
-        orderCanceled.publishAfterCommit();
+        OrderUpdated orderUpdated = new OrderUpdated(this);
+        orderUpdated.publishAfterCommit();
     }
 
     @PreRemove
