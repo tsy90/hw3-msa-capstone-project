@@ -7,11 +7,11 @@ import org.springframework.data.repository.query.Param;
 
 public interface CustomerViewRepository
     extends CrudRepository<CustomerView, Long> {
-    List<CustomerView> findByOrderId(String orderId);
-    List<CustomerView> findByPayId(String payId);
-    List<CustomerView> findByDeliverId(String deliverId);
+    List<CustomerView> findByOrderId(Long orderId);
+    List<CustomerView> findByPayId(Long payId);
+    List<CustomerView> findByDeliverId(Long deliverId);
 
-    void deleteByOrderId(String orderId);
+    void deleteByOrderId(Long orderId);
     // keep
 
 }

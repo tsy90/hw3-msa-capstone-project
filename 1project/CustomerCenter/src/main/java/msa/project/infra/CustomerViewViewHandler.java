@@ -48,7 +48,7 @@ public class CustomerViewViewHandler {
             // view 객체 조회
 
             List<CustomerView> customerViewList = customerViewRepository.findByOrderId(
-                String.valueOf(orderCanceled.getId())
+                orderCanceled.getId()
             );
             for (CustomerView customerView : customerViewList) {
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
@@ -77,7 +77,7 @@ public class CustomerViewViewHandler {
             for (CustomerView customerView : customerViewList) {
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
                 customerView.setPayStatus(
-                    Boolean.valueOf(payCompleted.getPayStatus())
+                    String.valueOf(payCompleted.getPayStatus())
                 );
                 // view 레파지 토리에 save
                 customerViewRepository.save(customerView);
@@ -101,7 +101,7 @@ public class CustomerViewViewHandler {
             for (CustomerView customerView : customerViewList) {
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
                 customerView.setPayStatus(
-                    Boolean.valueOf(payCanceled.getPayStatus())
+                    String.valueOf(payCanceled.getPayStatus())
                 );
                 // view 레파지 토리에 save
                 customerViewRepository.save(customerView);
@@ -120,7 +120,7 @@ public class CustomerViewViewHandler {
             // view 객체 조회
 
             List<CustomerView> customerViewList = customerViewRepository.findByDeliverId(
-                String.valueOf(deliveryStarted.getId())
+                deliveryStarted.getId()
             );
             for (CustomerView customerView : customerViewList) {
                 // view 객체에 이벤트의 eventDirectValue 를 set 함
