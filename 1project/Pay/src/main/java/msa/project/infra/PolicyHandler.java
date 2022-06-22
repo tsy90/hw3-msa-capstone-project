@@ -2,7 +2,10 @@ package msa.project.infra;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javax.naming.NameParser;
+
+import java.util.List;
+import java.util.Optional;
+
 import javax.naming.NameParser;
 import javax.transaction.Transactional;
 import msa.project.config.kafka.KafkaProcessor;
@@ -21,7 +24,7 @@ public class PolicyHandler {
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whatever(@Payload String eventString) {}
-
+    
     @StreamListener(KafkaProcessor.INPUT)
     public void wheneverOrderCanceled_CancelPay(
         @Payload OrderCanceled orderCanceled
@@ -33,7 +36,14 @@ public class PolicyHandler {
         );
 
         // Sample Logic //
-        Pay.cancelPay(event);
+        //Pay.cancelPay(event);
+
+        System.out.println("*** In Pay.java ***");
+        
+        List<Pay> payList = payRepository.findByOrderId(orderCanceled.getId());
+        if ((payList != null) && !payList.isEmpty()){
+            payRepository.deleteAll(payList);
+        }
     }
     // keep
 
