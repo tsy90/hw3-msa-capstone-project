@@ -35,6 +35,15 @@ public class Order {
     public void onPostPersist() {
         OrderPlaced orderPlaced = new OrderPlaced(this);
         orderPlaced.publishAfterCommit();
+
+        //Following code causes dependency to external APIs
+        // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
+
+        msa.project.external.Pay pay = new msa.project.external.Pay();
+        // mappings goes here
+        OrderApplication.applicationContext
+            .getBean(msa.project.external.PayService.class)
+            .pay(pay);
     }
 
     @PostUpdate
