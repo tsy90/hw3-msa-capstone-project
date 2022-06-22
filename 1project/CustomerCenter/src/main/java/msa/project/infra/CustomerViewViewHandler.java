@@ -27,7 +27,7 @@ public class CustomerViewViewHandler {
             CustomerView customerView = new CustomerView();
             // view 객체에 이벤트의 Value 를 set 함
             //customerView.setId(id);
-            customerView.setId(Long.valueOf(orderPlaced.getOrderStatus())); // 위에 에러떠서 이걸로 변경
+            customerView.setId(orderPlaced.getId()); // 위에 에러떠서 이걸로 변경
             customerView.setOrderStatus(
                 String.valueOf(orderPlaced.getOrderStatus())
             );
