@@ -31,6 +31,16 @@ public class Order {
 
     private String orderStatus;
 
+    private Long orderId;
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
+
     public Long getId() {
         return id;
     }
